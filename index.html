@@ -3,27 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name — Personal & Research</title>
-  <meta name="description" content="Personal website and research portfolio.">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <title>Saman Ebrahimi — Hydrosystems Engineering &amp; AI</title>
+  <meta name="description" content="Saman Ebrahimi, PhD Candidate in Hydrosystems Engineering at ASU. Research in remote sensing, explainable AI, and hydrologic modeling.">
+  <link rel="stylesheet" href="styles.css?v=4">
   <style>
-    /* Critical dark theme – applies even if stylesheet is cached */
     :root { --bg: #0a0e14; --text: #e6edf3; --text-muted: #8b9cad; --accent: #22b4d9; --border: #1e2a38; --bg-card: #111820; }
     body { background: #0a0e14 !important; color: #e6edf3 !important; }
     .site-header { background: rgba(10,14,20,.95) !important; border-bottom-color: #1e2a38 !important; }
-    .nav a { color: #8b9cad !important; }
-    .hero-title, .section h2, .paper-title, .card h3 { color: #e6edf3 !important; }
+    .nav a, .tabs button { color: #8b9cad !important; }
+    .tabs button.active { color: #22b4d9 !important; background: #111820 !important; border-color: #1e2a38 !important; }
+    .hero-title, .section h2, .subsection h3, .paper-title, .card h3, .cv-entry h3 { color: #e6edf3 !important; }
     .hero-title .name { color: #22b4d9 !important; }
-    .hero-tagline, .section-intro, .paper-meta, .paper-desc, .card p { color: #8b9cad !important; }
+    .hero-tagline, .section-intro, .paper-meta, .paper-desc, .card p, .cv-entry .meta { color: #8b9cad !important; }
     a { color: #22b4d9 !important; }
     .section { border-bottom-color: #1e2a38 !important; }
     .hero { border-bottom-color: #1e2a38 !important; }
     .card { background: #111820 !important; border-color: #1e2a38 !important; }
     .site-footer { border-top-color: #1e2a38 !important; color: #8b9cad !important; }
-    .hero-bio code { background: #0d3d4d !important; color: #22b4d9 !important; border-color: #1e2a38 !important; }
     .water-balance-figure { margin: 2rem 0; padding: 1.5rem; background: #111820 !important; border: 1px solid #1e2a38 !important; border-radius: 8px; }
     .water-balance-figure figcaption { text-align: center; color: #8b9cad !important; margin-bottom: 1rem; }
     .water-balance-svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .subsection { margin-top: 2.5rem; }
+    .subsection:first-child { margin-top: 0; }
+    .subsection h3 { font-size: 1.2rem; margin-bottom: 0.75rem; padding-bottom: 0.35rem; border-bottom: 1px solid #1e2a38; }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,119 +34,261 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-tab="about">About</a>
+      <a href="#research" data-tab="research">Research</a>
+      <a href="#projects" data-tab="projects">Projects</a>
+      <a href="#contact" data-tab="contact">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1 class="hero-title">Hi, I'm <span class="name">Your Name</span></h1>
-      <p class="hero-tagline">Researcher · Developer · [Your thing]</p>
-      <p class="hero-bio">Short one-liner about what you do and what drives you. Edit this in <code>index.html</code>.</p>
+      <h1 class="hero-title">Hi, I'm <span class="name">Saman Ebrahimi</span></h1>
+      <p class="hero-tagline">PhD Candidate · Hydrosystems Engineering · Remote Sensing &amp; AI</p>
+      <p class="hero-bio">Center for Hydrologic Innovations, Arizona State University. NASA- and NSF-funded research in explainable AI, semantic segmentation, and hydrologic modeling.</p>
     </section>
 
-    <section id="about" class="section">
-      <h2>About</h2>
-      <div class="content">
-        <p>Write a few sentences about yourself: your background, what you're studying or working on, and what you care about. This is your chance to let visitors get to know you.</p>
-        <p>You can add more paragraphs, a photo, or links to your CV or LinkedIn.</p>
-      </div>
-    </section>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" aria-selected="true" data-tab="about" class="active">About</button>
+      <button type="button" role="tab" data-tab="research">Research</button>
+      <button type="button" role="tab" data-tab="projects">Projects</button>
+      <button type="button" role="tab" data-tab="contact">Contact</button>
+    </div>
 
-    <section id="research" class="section">
-      <h2>Research</h2>
-      <div class="content">
-        <p class="section-intro">Overview of your research interests and focus areas.</p>
+    <!-- ABOUT -->
+    <div id="panel-about" class="tab-panel active" role="tabpanel">
+      <div class="section">
+        <h2>About</h2>
+        <div class="content">
+          <p>I am a PhD candidate in Hydrosystems Engineering at Arizona State University, working at the Center for Hydrologic Innovations. My research combines remote sensing, explainable AI, and mechanistic modeling for water cycle and land-surface applications—with funding from NASA and NSF.</p>
+          <p>I work on image processing and semantic segmentation (including foundational models), interpretability methods (e.g., Spectral Grad-CAM, Inter-class Grad-CAM), data assimilation, and digital twins for Earth observation.</p>
+          <figure class="water-balance-figure">
+            <figcaption>Conceptual water balance</figcaption>
+            <svg class="water-balance-svg" viewBox="0 0 480 250" xmlns="http://www.w3.org/2000/svg" aria-label="Water balance">
+              <defs>
+                <linearGradient id="rain" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#22b4d9"/><stop offset="100%" stop-color="#0d3d4d"/></linearGradient>
+                <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1e2a38"/><stop offset="50%" stop-color="#22b4d9"/><stop offset="100%" stop-color="#1e2a38"/></linearGradient>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#22b4d9"/></marker>
+              </defs>
+              <text x="240" y="28" text-anchor="middle" fill="#8b9cad" font-size="13">Precipitation (P)</text>
+              <path d="M230 45 L240 70 L250 45 L240 55 L230 45" fill="url(#rain)" opacity="0.9"/>
+              <line x1="240" y1="72" x2="240" y2="95" stroke="#22b4d9" stroke-width="2" stroke-dasharray="4 3" opacity="0.8"/>
+              <rect x="140" y="95" width="200" height="80" rx="8" fill="#111820" stroke="#22b4d9" stroke-width="2"/>
+              <text x="240" y="125" text-anchor="middle" fill="#e6edf3" font-size="14">Catchment / Basin</text>
+              <text x="240" y="145" text-anchor="middle" fill="#8b9cad" font-size="12">ΔS (storage change)</text>
+              <path d="M340 135 L398 102" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M140 135 L82 168" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M240 175 L240 208" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <text x="405" y="98" fill="#22b4d9" font-size="12">Runoff (Q)</text>
+              <text x="48" y="172" fill="#22b4d9" font-size="12">ET</text>
+              <text x="252" y="225" fill="#8b9cad" font-size="11">Groundwater</text>
+              <text x="240" y="243" text-anchor="middle" fill="#22b4d9" font-size="12">P = ET + Q + ΔS</text>
+            </svg>
+          </figure>
 
-        <figure class="water-balance-figure">
-          <figcaption>Conceptual water balance</figcaption>
-          <svg class="water-balance-svg" viewBox="0 0 480 250" xmlns="http://www.w3.org/2000/svg" aria-label="Water balance: precipitation, evapotranspiration, runoff, storage">
-            <defs>
-              <linearGradient id="rain" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#22b4d9"/>
-                <stop offset="100%" stop-color="#0d3d4d"/>
-              </linearGradient>
-              <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#1e2a38"/>
-                <stop offset="50%" stop-color="#22b4d9"/>
-                <stop offset="100%" stop-color="#1e2a38"/>
-              </linearGradient>
-              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M0 0 L8 4 L0 8 Z" fill="#22b4d9"/>
-              </marker>
-            </defs>
-            <!-- Precipitation -->
-            <text x="240" y="28" text-anchor="middle" fill="#8b9cad" font-size="13">Precipitation (P)</text>
-            <path d="M230 45 L240 70 L250 45 L240 55 L230 45" fill="url(#rain)" opacity="0.9"/>
-            <line x1="240" y1="72" x2="240" y2="95" stroke="#22b4d9" stroke-width="2" stroke-dasharray="4 3" opacity="0.8"/>
-            <!-- Basin / storage box -->
-            <rect x="140" y="95" width="200" height="80" rx="8" fill="#111820" stroke="#22b4d9" stroke-width="2"/>
-            <text x="240" y="125" text-anchor="middle" fill="#e6edf3" font-size="14">Catchment / Basin</text>
-            <text x="240" y="145" text-anchor="middle" fill="#8b9cad" font-size="12">ΔS (storage change)</text>
-            <!-- Outflows -->
-            <path d="M340 135 L398 102" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-            <path d="M140 135 L82 168" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-            <path d="M240 175 L240 208" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-            <!-- Labels -->
-            <text x="405" y="98" fill="#22b4d9" font-size="12">Runoff (Q)</text>
-            <text x="48" y="172" fill="#22b4d9" font-size="12">ET</text>
-            <text x="252" y="225" fill="#8b9cad" font-size="11">Groundwater</text>
-            <text x="240" y="243" text-anchor="middle" fill="#22b4d9" font-size="12">P = ET + Q + ΔS</text>
-          </svg>
-        </figure>
+          <div class="subsection">
+            <h3>Education</h3>
+            <div class="cv-entry"><h3>PhD Candidate in Hydrosystems Engineering</h3><div class="meta">Arizona State University · Current · GPA: 3.95</div></div>
+            <div class="cv-entry"><h3>Master of Science in Civil Engineering — Water and Wastewater</h3><div class="meta">University of Tehran · 2019</div></div>
+            <div class="cv-entry"><h3>Bachelor of Civil Engineering</h3><div class="meta">K.N. Toosi University of Technology · 2016</div></div>
+          </div>
 
-        <ul class="paper-list">
-          <li class="paper">
-            <span class="paper-title">Paper or Project Title</span>
-            <span class="paper-meta">Authors, Venue/Year — <a href="#">Link</a></span>
-            <span class="paper-desc">Brief description or abstract snippet.</span>
-          </li>
-          <li class="paper">
-            <span class="paper-title">Another Paper or Project</span>
-            <span class="paper-meta">Authors, Venue/Year — <a href="#">Link</a></span>
-            <span class="paper-desc">Another short description.</span>
-          </li>
-        </ul>
-      </div>
-    </section>
+          <div class="subsection">
+            <h3>Awards &amp; Honors</h3>
+            <div class="cv-item">Fulton Fellowship, Ira A. Fulton Schools of Engineering, Arizona State University</div>
+            <div class="cv-item">National Entrance Exam Merit Scholarship, Iran Ministry of Science — B.Sc. program</div>
+            <div class="cv-item">National Entrance Exam Merit Scholarship, Iran Ministry of Science — M.Sc. program</div>
+            <div class="cv-item">GSG Travel Grant, Graduate Student Government, Arizona State University</div>
+          </div>
 
-    <section id="projects" class="section">
-      <h2>Projects & Cool Stuff</h2>
-      <div class="content">
-        <p>Side projects, open source, hobbies, or anything else you want to highlight. Link to GitHub repos, demos, or blog posts.</p>
-        <div class="card-grid">
-          <article class="card">
-            <h3>Project One</h3>
-            <p>Short description. <a href="#">Link</a></p>
-          </article>
-          <article class="card">
-            <h3>Project Two</h3>
-            <p>Short description. <a href="#">Link</a></p>
-          </article>
+          <div class="subsection">
+            <h3>Professional Affiliations</h3>
+            <div class="cv-item">Member, <em>American Geophysical Union</em></div>
+            <div class="cv-item">Member, <em>IEEE Geoscience and Remote Sensing Society</em></div>
+            <div class="cv-item">Student Member, <em>American Society of Civil Engineers</em></div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="content contact-links">
-        <a href="https://github.com/yourusername" rel="noopener noreferrer" target="_blank">GitHub</a>
-        <a href="https://twitter.com/yourusername" rel="noopener noreferrer" target="_blank">Twitter / X</a>
-        <a href="https://linkedin.com/in/yourusername" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-        <a href="mailto:you@example.com">Email</a>
+    <!-- RESEARCH -->
+    <div id="panel-research" class="tab-panel" role="tabpanel">
+      <div class="section">
+        <h2>Research</h2>
+        <div class="content">
+          <div class="subsection">
+            <h3>Experience</h3>
+            <div class="cv-entry">
+              <h3>Graduate Research Assistant</h3>
+              <div class="meta">Arizona State University, Center for Hydrologic Innovations · Tempe, AZ · Current</div>
+              <ul>
+                <li>Image processing: data enhancement, segmentation (foundational models), and analysis from high-resolution imagery and geospatial embeddings — <strong>NASA-funded</strong>.</li>
+                <li>Introduced two Explainable AI methods: Spectral Grad-CAM and Inter-class Grad-CAM for semantic segmentation — <strong>NASA-funded</strong>.</li>
+                <li>Developed a 3D model via 1D models by integrating MCMC into a mechanistic model — <strong>NSF-funded</strong>.</li>
+                <li>Preprocessed high-dimensional time series climate data using statistical and ML methods — <strong>NASA-funded</strong>.</li>
+                <li>Optimized data handling and model training with PyTorch and CUDA for large-scale environmental datasets.</li>
+                <li>Developed predictive models for forest fire susceptibility and risk assessments.</li>
+                <li>Created a Digital Twin for Earth Observation integrating satellite data and physical models — <strong>NSF-funded</strong>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>Data Products</h3>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, Kumar, S. <em>Annual Crop &amp; Land Cover Land Use (CLCLU) Dataset for the Middle Rio Grande (MRG) Region (1994–2024)</em>. 2025. <a href="https://doi.org/10.5281/zenodo.15116835" target="_blank" rel="noopener">doi:10.5281/zenodo.15116835</a>.</div>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, Kumar, S. <em>Sentinel-derived Leaf Area Index (LAI) at 20 m spatial resolution with a biweekly temporal frequency for the transboundary HUC-130401 watershed</em>. 2026. <a href="https://doi.org/10.5281/zenodo.18989066" target="_blank" rel="noopener">doi:10.5281/zenodo.18989066</a>.</div>
+          </div>
+
+          <div class="subsection">
+            <h3>Peer-Reviewed Publications</h3>
+            <ul class="paper-list">
+              <li class="paper"><span class="paper-title">What helps to detect what? Explainable AI and multi-sensor fusion for semantic segmentation of simultaneous crop and land cover land use delineation.</span><span class="paper-meta"><strong>Ebrahimi, S.</strong>, &amp; Kumar, S. (2025). <em>IEEE JSTARS</em>, 18, 5423–5444. <a href="https://doi.org/10.1109/JSTARS.2025.3532829" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">30 years of simultaneous crop &amp; land cover land use maps for Middle Rio Grande from 1994 to 2024.</span><span class="paper-meta"><strong>Ebrahimi, S.</strong>, Khorram, M., Neri Barranco, R., et al. (2025). <em>Scientific Data</em>, 12, 1462. <a href="https://doi.org/10.1038/s41597-025-05771-6" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">Semantic segmentation for simultaneous crop and land cover land use classification using multi-temporal Landsat imagery.</span><span class="paper-meta"><strong>Ebrahimi, S.</strong>, &amp; Kumar, S. (2025). <em>Remote Sensing Applications: Society and Environment</em>, 37, 101505. <a href="https://doi.org/10.1016/j.rsase.2025.101505" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">Assessing field scale spatiotemporal heterogeneity in salinity dynamics using aerial data assimilation.</span><span class="paper-meta"><strong>Ebrahimi, S.</strong>, Khorram, M., Palmate, S., et al. (2024). <em>Agricultural Water Management</em>, 305, 109114. <a href="https://doi.org/10.1016/j.agwat.2024.109114" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">Evaluation of hydrological variabilities of water quality models considering event-based scenarios: A case study.</span><span class="paper-meta"><strong>Ebrahimi, S.</strong>, Azizi, K., Khorram, M., et al. (2024). <em>Stochastic Environmental Research and Risk Assessment</em>, 38, 2425–2449. <a href="https://doi.org/10.1007/s00477-024-02687-2" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">Application of a multi-objective optimization model for the design of piano key weirs with a fixed dam height.</span><span class="paper-meta">Azizi, K., Kashani, A. R., <strong>Ebrahimi, S.</strong>, &amp; Jazaei, F. (2022). <em>Canadian Journal of Civil Engineering</em>, 49(11), 1764–1778. <a href="https://doi.org/10.1139/cjce-2022-0096" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">Modeling of local scour depth around bridge pier using FLOW 3D.</span><span class="paper-meta">Alasta, M. S., Ali, A. S. A., <strong>Ebrahimi, S.</strong>, et al. (2022). <em>CRPASE</em>, 8(2), 1–9. <a href="https://doi.org/10.52547/crpase.8.2.2781" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">Machine learning model for estimation of local scour depth around cylindrical bridge piers.</span><span class="paper-meta">Ali, A. S., Ashiq, M. M., <strong>Ebrahimi, S.</strong>, et al. (2022). <em>Iraqi Journal of Civil Engineering</em>, 16(2), 1–13. <a href="https://doi.org/10.37650/ijce.2022.160201" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">CNN-Bi LSTM neural network for simulating groundwater level.</span><span class="paper-meta">Ali, A. S. A., <strong>Ebrahimi, S.</strong>, Ashiq, M. M., et al. (2022). <em>CRPASE</em>, 8(1), 1–7. <a href="https://doi.org/10.52547/crpase.8.1.2748" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">Evaluation of machine learning methods application in temperature prediction.</span><span class="paper-meta">Azari, B., Hassan, K., Pierce, J., &amp; <strong>Ebrahimi, S.</strong> (2022). <em>CRPASE</em>, 8(1), 1–12. <a href="https://doi.org/10.52547/crpase.8.1.2747" target="_blank" rel="noopener">doi</a></span></li>
+              <li class="paper"><span class="paper-title">Variability effect of hydrological regime on river quality pattern and its uncertainties: Case study of Zarjoob River in Iran.</span><span class="paper-meta"><strong>Ebrahimi, S.</strong>, &amp; Khorram, M. (2021). <em>Journal of Hydroinformatics</em>, 23(5), 1146–1164. <a href="https://doi.org/10.2166/hydro.2021.027" target="_blank" rel="noopener">doi</a></span></li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>Manuscripts in Preparation</h3>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, &amp; Kumar, S. High-resolution distributed hydrologic modeling for data-scarce watersheds (intended for <em>Water Resources Research</em>).</div>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, &amp; Kumar, S. Impacts of leaf area index assimilation and transient land cover representation on evapotranspiration in arid transboundary agriculture-dominated basins (intended for <em>Water Resources Research</em>).</div>
+          </div>
+
+          <div class="subsection">
+            <h3>Book Chapters</h3>
+            <div class="cv-item">Ali, A. S., <strong>Ebrahimi, S.</strong>, Ashiq, M. M., &amp; Kashani, A. R. (2024). LSTM with Bayesian optimization for forecasting of local scour depth around bridges and piers. In <em>Principles and Applications of Adaptive Artificial Intelligence</em> (pp. 207–221). <a href="https://doi.org/10.4018/979-8-3693-0230-9.ch009" target="_blank" rel="noopener">doi</a></div>
+            <div class="cv-item">Kashani, A. R., <strong>Ebrahimi, S.</strong>, &amp; Camp, C. V. (2023). Salp swarm algorithm for optimization of shallow foundations. In <em>Handbook of Formal Optimization</em> (Vol. 1, pp. 1–21). <a href="https://doi.org/10.1007/978-981-19-8851-6_33-1" target="_blank" rel="noopener">doi</a></div>
+          </div>
+
+          <div class="subsection">
+            <h3>Conference Papers &amp; Presentations</h3>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, &amp; Kumar, S. (2025). What helps to detect what? Explainable AI that illuminates drivers in multi-sensor semantic segmentation. <em>AGU Fall Meeting (AGU25)</em>.</div>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, Khorram, M., &amp; Kumar, S. (2024). Assessing optically inactive soil properties by coupling remotely sensed data and physically based models—data assimilation to identify salinity in vadose zone for a pecan orchard. <em>Chapman Conference on Remote Sensing of the Water Cycle</em>.</div>
+            <div class="cv-item">Khorram, M., <strong>Ebrahimi, S.</strong>, &amp; Kumar, S. (2024). True carbon footprint of dam: Accounting for changes in forest fire potentiality. <em>Chapman Conference on Remote Sensing of the Water Cycle</em>.</div>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, Khorram, M., &amp; Kumar, S. (2024). Assimilating remote sensed data in a physically based model to determine salinity in the vadose zone of a pecan orchard. <em>World Environmental &amp; Water Resources Congress (EWRI)</em>.</div>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, Alqusaireen, E., &amp; Meier, C. I. (2023). Hyporheic exchange flow (HEF) under a unit, medial gravel bar: A high-resolution field study. <em>SEDHYD Conference</em>.</div>
+            <div class="cv-item"><strong>Ebrahimi, S.</strong>, &amp; Meier, C. I. (2022). An investigation of hyporheic exchange flow (HEF) under a unit medial gravel bar (MGB). <em>AGU Fall Meeting</em>.</div>
+            <div class="cv-item">Khorram, M., <strong>Ebrahimi, S.</strong>, &amp; Ali, A. S. (2022). Microstructural changes in bentonite considering preferential sorption in the presence of zinc nitrate and ethanol. <em>AGU Fall Meeting</em>.</div>
+          </div>
+
+          <div class="subsection">
+            <h3>Teaching &amp; Mentorship</h3>
+            <div class="cv-entry"><h3>Teaching Assistant, Numerical Methods for Engineers</h3><div class="meta">Arizona State University · Fall 2025 · Tempe, AZ</div><ul><li>Supported instruction and grading; assisted students with computational assignments and problem-solving.</li></ul></div>
+            <div class="cv-entry"><h3>Graduate Mentor, WaterDmD Lab</h3><div class="meta">Center for Hydrologic Innovations, ASU · 2023–Present · Tempe, AZ</div><ul><li>Mentored master's students on research in hydrology, remote sensing, and geospatial AI; guided coding workflows, data processing, and analysis pipelines.</li></ul></div>
+            <div class="cv-entry"><h3>Teaching Assistant, Strength of Materials</h3><div class="meta">K.N. Toosi University of Technology · Fall 2016 · Tehran, Iran</div><ul><li>Assisted instruction in strength and mechanics of materials; held office hours and supported student learning and lab activities.</li></ul></div>
+          </div>
+
+          <div class="subsection">
+            <h3>Grant &amp; Proposal Development</h3>
+            <div class="cv-item">Lead writer for <strong>NASA ROSES</strong> proposal (FI) titled <em>Hybrid AI-Driven Downscaling and EO-Assisted Process-Based Modeling for Hydrologically Relevant Fluxes in Data-Limited Watersheds</em> (not funded, 2025).</div>
+            <div class="cv-item">Contributing writer on <strong>DoD SBIR</strong> proposal (Co-PI) titled <em>AI-Driven Full-Spectrum Anomaly Detection</em> (under review, 2025).</div>
+          </div>
+
+          <div class="subsection">
+            <h3>Peer-Review Activities</h3>
+            <p class="section-intro">Ad-hoc reviewer for:</p>
+            <ul>
+              <li><em>IEEE JSTARS</em>, <em>IEEE TGRS</em> · IEEE</li>
+              <li><em>Stochastic Environmental Research and Risk Assessment</em>, <em>Environmental Monitoring and Assessment</em>, <em>Discover Geoscience</em>, <em>Discover Sustainability</em>, <em>Scientific Reports</em>, <em>Theoretical and Applied Climatology</em>, <em>Journal of Thermal Analysis and Calorimetry</em> · Springer Nature</li>
+              <li><em>Ecological Solutions and Evidence</em> · Wiley (British Ecological Society)</li>
+              <li><em>Experimental Physiology</em> · Wiley (The Physiological Society)</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <!-- PROJECTS (Skills & Certifications) -->
+    <div id="panel-projects" class="tab-panel" role="tabpanel">
+      <div class="section">
+        <h2>Projects &amp; Skills</h2>
+        <div class="content">
+          <div class="subsection">
+            <h3>Skills</h3>
+            <div class="skills-grid">
+              <div class="card"><h3>Programming</h3><p>Python, JavaScript, SQL, Fortran, R, MATLAB, C, C++</p></div>
+              <div class="card"><h3>ML / Frameworks</h3><p>Keras, TensorFlow, PyTorch, Scikit-learn, PyCaret, GeoPandas, Rasterio, Xarray</p></div>
+              <div class="card"><h3>Geospatial</h3><p>ArcGIS, QGIS, ENVI, Google Earth Engine</p></div>
+              <div class="card"><h3>Cloud</h3><p>AWS, Microsoft Azure, Google Cloud</p></div>
+              <div class="card"><h3>DevOps</h3><p>Docker, Git, GitHub</p></div>
+              <div class="card"><h3>Hydrology</h3><p>HEC-HMS, HEC-RAS, SWAT, SWAT+, VIC, Noah-MP</p></div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3>Licenses &amp; Certifications</h3>
+            <div class="cv-item"><strong>Generative Adversarial Networks (GANs)</strong> — DeepLearning.AI, 2025 · <a href="https://www.coursera.org/account/accomplishments/specialization/KEY51UHHM1B6" target="_blank" rel="noopener">Show credential</a></div>
+            <div class="cv-item"><strong>Apply Generative Adversarial Networks (GANs)</strong> — DeepLearning.AI, 2025 · <a href="https://www.coursera.org/account/accomplishments/verify/3TK42LZRAKOL" target="_blank" rel="noopener">Show credential</a></div>
+            <div class="cv-item"><strong>Build Basic / Better Generative Adversarial Networks (GANs)</strong> — DeepLearning.AI, 2024–2025</div>
+            <div class="cv-item"><strong>Mastering Image Segmentation with PyTorch</strong> — Udemy, 2024 · <a href="https://www.udemy.com/certificate/UC-fc5fe6a7-f8bc-473c-a099-c60b22d7d7c0/" target="_blank" rel="noopener">Show credential</a></div>
+            <div class="cv-item"><strong>Deep Learning Application for Earth Observation</strong> — Udemy, 2024</div>
+            <div class="cv-item"><strong>Sequence Models</strong> — DeepLearning.AI, 2023</div>
+            <div class="cv-item"><strong>Convolutional Neural Networks</strong> — DeepLearning.AI, 2023</div>
+            <div class="cv-item"><strong>Structuring ML Projects / Improving Deep Neural Networks / Neural Networks and Deep Learning</strong> — DeepLearning.AI, 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="panel-contact" class="tab-panel" role="tabpanel">
+      <div class="section">
+        <h2>Contact</h2>
+        <div class="content contact-block">
+          <p><a href="https://www.linkedin.com/in/saman-ebrahimi-b56b11240" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/Saman7007" target="_blank" rel="noopener">GitHub</a> · <a href="https://scholar.google.com/citations?user=8f_Yj1UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a></p>
+          <p>Phone: +1 (617) 794-9755</p>
+          <p>Email: <a href="mailto:sebrah13@asu.edu">sebrah13@asu.edu</a></p>
+        </div>
+        <div class="subsection">
+          <h3>References</h3>
+          <div class="cv-item"><strong>Dr. Saurav Kumar</strong> — Asst. Professor, SSEBE, ASU · <a href="mailto:sk2@asu.edu">sk2@asu.edu</a> · +1 (602) 496-5719</div>
+          <div class="cv-item"><strong>Dr. Enrique Vivoni</strong> — Fulton Professor of Hydrosystems Engineering, SSEBE, ASU · <a href="mailto:vivoni@asu.edu">vivoni@asu.edu</a> · +1 (480) 727-3575</div>
+          <div class="cv-item"><strong>Dr. Nakul Gopalan</strong> — Asst. Professor, SCAI, ASU · <a href="mailto:Nakul.Gopalan@asu.edu">Nakul.Gopalan@asu.edu</a></div>
+          <div class="cv-item"><strong>Dr. Ruijie Zeng</strong> — Asst. Professor, SSEBE, ASU · <a href="mailto:Ruijie.Zeng.1@asu.edu">Ruijie.Zeng.1@asu.edu</a> · +1 (480) 727-2944</div>
+          <div class="cv-item"><strong>Dr. Koorosh Azizi</strong> — Asst. Professor, Tennessee State University · <a href="mailto:kazizi@tnstate.edu">kazizi@tnstate.edu</a> · +1 (901) 608-8034</div>
+          <div class="cv-item"><strong>Dr. Santosh S. Palmate</strong> — Asst. Professor, Texas A&amp;M University · <a href="mailto:santosh.palmate@ag.tamu.edu">santosh.palmate@ag.tamu.edu</a> · +1 (915) 701-8037</div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Your Name. Built for GitHub Pages.</p>
+    <p>© <span id="year"></span> Saman Ebrahimi. Built for GitHub Pages.</p>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    (function() {
+      var tabs = document.querySelectorAll('.tabs button[data-tab], .nav a[data-tab]');
+      var panels = document.querySelectorAll('.tab-panel');
+      function showPanel(tabId) {
+        panels.forEach(function(p) { p.classList.toggle('active', p.id === 'panel-' + tabId); });
+        document.querySelectorAll('.tabs button').forEach(function(b) {
+          b.classList.toggle('active', b.getAttribute('data-tab') === tabId);
+          b.setAttribute('aria-selected', b.getAttribute('data-tab') === tabId);
+        });
+        history.replaceState(null, '', '#' + tabId);
+      }
+      function handleClick(e) {
+        e.preventDefault();
+        var t = e.currentTarget.getAttribute('data-tab');
+        if (t) showPanel(t);
+      }
+      tabs.forEach(function(btn) { btn.addEventListener('click', handleClick); });
+      var hash = location.hash.slice(1);
+      if (hash && document.getElementById('panel-' + hash)) showPanel(hash);
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (h && document.getElementById('panel-' + h)) showPanel(h);
+      });
+    })();
   </script>
 </body>
 </html>

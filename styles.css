@@ -69,6 +69,58 @@ body::before {
 }
 .nav a:hover { color: var(--accent); }
 
+/* --- Tabs --- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0;
+  padding: 0 0 1px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tabs button {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s;
+}
+.tabs button:hover { color: var(--accent); }
+.tabs button.active {
+  color: var(--accent);
+  background: var(--bg-card);
+  border-color: var(--border);
+  border-bottom: 1px solid var(--bg-card);
+  margin-bottom: -1px;
+}
+.tab-panel {
+  display: none;
+  padding: 2rem 0 3rem;
+  animation: fadeIn 0.2s ease;
+}
+.tab-panel.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.cv-entry { margin-bottom: 1.5rem; }
+.cv-entry:last-child { margin-bottom: 0; }
+.cv-entry h3 { font-size: 1.05rem; margin: 0 0 0.35rem; color: var(--text); }
+.cv-entry .meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.cv-entry ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+.cv-entry li { margin-bottom: 0.35rem; }
+.cv-item { margin-bottom: 1rem; }
+.cv-item:last-child { margin-bottom: 0; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.skills-grid .card { margin: 0; }
+.contact-block { margin-top: 1rem; }
+.contact-block a { display: inline-block; margin-right: 1rem; margin-bottom: 0.5rem; }
+
 /* --- Main content --- */
 main {
   max-width: var(--max-width);
@@ -140,6 +192,17 @@ main {
 .section-intro {
   color: var(--text-muted);
   margin-bottom: 1.25rem;
+}
+.subsection { margin-top: 2.5rem; }
+.subsection:first-child { margin-top: 0; }
+.subsection h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
 }
 .content { margin: 0; }
 .content p { margin: 0 0 1rem; }
