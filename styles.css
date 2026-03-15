@@ -43,32 +43,6 @@ body::before {
   z-index: 0;
 }
 
-/* --- Header --- */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: var(--bg-header);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
-.nav {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--space) 1.25rem;
-  display: flex;
-  gap: 1.75rem;
-  flex-wrap: wrap;
-}
-.nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.05rem;
-  transition: color 0.2s;
-}
-.nav a:hover { color: var(--accent); }
-
 /* --- Tabs --- */
 .tabs {
   display: flex;
