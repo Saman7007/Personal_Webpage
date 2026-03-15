@@ -170,9 +170,9 @@ main {
 .research-narrative { margin-bottom: 2rem; }
 .research-narrative p { margin: 0 0 1rem; }
 .research-narrative p:last-child { margin-bottom: 0; }
-.research-figures { display: flex; flex-wrap: wrap; gap: 1.5rem; }
-.research-figure { margin: 0; max-width: 100%; }
-.research-figure img { max-width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+.research-figures { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+.research-figure { margin: 0; max-width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.research-figure img { max-width: 60%; width: auto; height: auto; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
 .research-figure figcaption { margin-top: 0.5rem; font-size: 2.1rem; color: var(--text-muted); }
 .subsection { margin-top: 2.5rem; }
 .subsection:first-child { margin-top: 0; }
@@ -234,11 +234,16 @@ a:hover {
 
 /* --- Water balance figure --- */
 .water-balance-figure {
-  margin: 2rem 0;
+  margin: 2rem auto;
   padding: 1.5rem;
+  max-width: 60%;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .water-balance-figure figcaption {
   text-align: center;
@@ -248,7 +253,7 @@ a:hover {
 }
 .water-balance-svg {
   width: 100%;
-  max-width: 480px;
+  max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
