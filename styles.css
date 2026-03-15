@@ -12,7 +12,7 @@
   --glow: rgba(34, 180, 217, 0.25);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
-  --max-width: min(1000px, 92vw);
+  --max-width: min(1280px, 96vw);
   --space: 1.5rem;
   --radius: 8px;
 }
