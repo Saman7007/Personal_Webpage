@@ -36,6 +36,7 @@
     <nav class="nav">
       <a href="#about" data-tab="about">About</a>
       <a href="#research" data-tab="research">Research</a>
+      <a href="#publications" data-tab="publications">Publications</a>
       <a href="#projects" data-tab="projects">Projects</a>
       <a href="#contact" data-tab="contact">Contact</a>
     </nav>
@@ -51,6 +52,7 @@
     <div class="tabs" role="tablist">
       <button type="button" role="tab" aria-selected="true" data-tab="about" class="active">About</button>
       <button type="button" role="tab" data-tab="research">Research</button>
+      <button type="button" role="tab" data-tab="publications">Publications</button>
       <button type="button" role="tab" data-tab="projects">Projects</button>
       <button type="button" role="tab" data-tab="contact">Contact</button>
     </div>
@@ -116,6 +118,7 @@
       <div class="section">
         <h2>Research</h2>
         <div class="content">
+          <div id="research-content" class="research-narrative"></div>
           <div class="subsection">
             <h3>Experience</h3>
             <div class="cv-entry">
@@ -132,13 +135,20 @@
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- PUBLICATIONS -->
+    <div id="panel-publications" class="tab-panel" role="tabpanel">
+      <div class="section">
+        <h2>Publications</h2>
+        <div class="content">
           <div class="subsection">
             <h3>Data Products</h3>
             <div class="cv-item"><strong>Ebrahimi, S.</strong>, Kumar, S. <em>Annual Crop &amp; Land Cover Land Use (CLCLU) Dataset for the Middle Rio Grande (MRG) Region (1994–2024)</em>. 2025. <a href="https://doi.org/10.5281/zenodo.15116835" target="_blank" rel="noopener">doi:10.5281/zenodo.15116835</a>.</div>
             <div class="cv-item"><strong>Ebrahimi, S.</strong>, Kumar, S. <em>Sentinel-derived Leaf Area Index (LAI) at 20 m spatial resolution with a biweekly temporal frequency for the transboundary HUC-130401 watershed</em>. 2026. <a href="https://doi.org/10.5281/zenodo.18989066" target="_blank" rel="noopener">doi:10.5281/zenodo.18989066</a>.</div>
           </div>
-
           <div class="subsection">
             <h3>Peer-Reviewed Publications</h3>
             <ul class="paper-list">
@@ -155,19 +165,16 @@
               <li class="paper"><span class="paper-title">Variability effect of hydrological regime on river quality pattern and its uncertainties: Case study of Zarjoob River in Iran.</span><span class="paper-meta"><strong>Ebrahimi, S.</strong>, &amp; Khorram, M. (2021). <em>Journal of Hydroinformatics</em>, 23(5), 1146–1164. <a href="https://doi.org/10.2166/hydro.2021.027" target="_blank" rel="noopener">doi</a></span></li>
             </ul>
           </div>
-
           <div class="subsection">
             <h3>Manuscripts in Preparation</h3>
             <div class="cv-item"><strong>Ebrahimi, S.</strong>, &amp; Kumar, S. High-resolution distributed hydrologic modeling for data-scarce watersheds (intended for <em>Water Resources Research</em>).</div>
             <div class="cv-item"><strong>Ebrahimi, S.</strong>, &amp; Kumar, S. Impacts of leaf area index assimilation and transient land cover representation on evapotranspiration in arid transboundary agriculture-dominated basins (intended for <em>Water Resources Research</em>).</div>
           </div>
-
           <div class="subsection">
             <h3>Book Chapters</h3>
             <div class="cv-item">Ali, A. S., <strong>Ebrahimi, S.</strong>, Ashiq, M. M., &amp; Kashani, A. R. (2024). LSTM with Bayesian optimization for forecasting of local scour depth around bridges and piers. In <em>Principles and Applications of Adaptive Artificial Intelligence</em> (pp. 207–221). <a href="https://doi.org/10.4018/979-8-3693-0230-9.ch009" target="_blank" rel="noopener">doi</a></div>
             <div class="cv-item">Kashani, A. R., <strong>Ebrahimi, S.</strong>, &amp; Camp, C. V. (2023). Salp swarm algorithm for optimization of shallow foundations. In <em>Handbook of Formal Optimization</em> (Vol. 1, pp. 1–21). <a href="https://doi.org/10.1007/978-981-19-8851-6_33-1" target="_blank" rel="noopener">doi</a></div>
           </div>
-
           <div class="subsection">
             <h3>Conference Papers &amp; Presentations</h3>
             <div class="cv-item"><strong>Ebrahimi, S.</strong>, &amp; Kumar, S. (2025). What helps to detect what? Explainable AI that illuminates drivers in multi-sensor semantic segmentation. <em>AGU Fall Meeting (AGU25)</em>.</div>
@@ -178,7 +185,6 @@
             <div class="cv-item"><strong>Ebrahimi, S.</strong>, &amp; Meier, C. I. (2022). An investigation of hyporheic exchange flow (HEF) under a unit medial gravel bar (MGB). <em>AGU Fall Meeting</em>.</div>
             <div class="cv-item">Khorram, M., <strong>Ebrahimi, S.</strong>, &amp; Ali, A. S. (2022). Microstructural changes in bentonite considering preferential sorption in the presence of zinc nitrate and ethanol. <em>AGU Fall Meeting</em>.</div>
           </div>
-
           <div class="subsection">
             <h3>Peer-Review Activities</h3>
             <p class="section-intro">Ad-hoc reviewer for:</p>
@@ -266,6 +272,20 @@
         var h = location.hash.slice(1);
         if (h && document.getElementById('panel-' + h)) showPanel(h);
       });
+
+      // Load Research narrative from Content/Research/research.md
+      var researchEl = document.getElementById('research-content');
+      if (researchEl) {
+        fetch('Content/Research/research.md')
+          .then(function(r) { return r.text(); })
+          .then(function(text) {
+            var html = text.split(/\n\n+/).map(function(p) {
+              return '<p>' + p.replace(/\n/g, '<br>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>') + '</p>';
+            }).join('');
+            researchEl.innerHTML = html;
+          })
+          .catch(function() { researchEl.innerHTML = '<p>Edit <code>Content/Research/research.md</code> to add your research narrative.</p>'; });
+      }
     })();
   </script>
 </body>

@@ -1,0 +1,3 @@
+My research sits at the intersection of hydrology, remote sensing, and machine learning. I am interested in how we can use satellite imagery and geospatial data—together with physically based models—to better understand the water cycle and land-surface processes, especially in data-scarce or transboundary basins.
+
+I focus on semantic segmentation and explainable AI for crop and land cover mapping, data assimilation for hydrologic and salinity modeling, and building digital twins that combine Earth observation with mechanistic models. The goal is to make these tools interpretable and useful for decision-making in water and agricultural management.

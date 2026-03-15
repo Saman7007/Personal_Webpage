@@ -193,6 +193,9 @@ main {
   color: var(--text-muted);
   margin-bottom: 1.25rem;
 }
+.research-narrative { margin-bottom: 2rem; }
+.research-narrative p { margin: 0 0 1rem; }
+.research-narrative p:last-child { margin-bottom: 0; }
 .subsection { margin-top: 2.5rem; }
 .subsection:first-child { margin-top: 0; }
 .subsection h3 {
