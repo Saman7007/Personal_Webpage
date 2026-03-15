@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Name — Personal & Research</title>
   <meta name="description" content="Personal website and research portfolio.">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <style>
+    /* Critical dark theme – applies even if stylesheet is cached */
+    :root { --bg: #0a0e14; --text: #e6edf3; --text-muted: #8b9cad; --accent: #22b4d9; --border: #1e2a38; --bg-card: #111820; }
+    body { background: #0a0e14 !important; color: #e6edf3 !important; }
+    .site-header { background: rgba(10,14,20,.95) !important; border-bottom-color: #1e2a38 !important; }
+    .nav a { color: #8b9cad !important; }
+    .hero-title, .section h2, .paper-title, .card h3 { color: #e6edf3 !important; }
+    .hero-title .name { color: #22b4d9 !important; }
+    .hero-tagline, .section-intro, .paper-meta, .paper-desc, .card p { color: #8b9cad !important; }
+    a { color: #22b4d9 !important; }
+    .section { border-bottom-color: #1e2a38 !important; }
+    .hero { border-bottom-color: #1e2a38 !important; }
+    .card { background: #111820 !important; border-color: #1e2a38 !important; }
+    .site-footer { border-top-color: #1e2a38 !important; color: #8b9cad !important; }
+    .hero-bio code { background: #0d3d4d !important; color: #22b4d9 !important; border-color: #1e2a38 !important; }
+    .water-balance-figure { margin: 2rem 0; padding: 1.5rem; background: #111820 !important; border: 1px solid #1e2a38 !important; border-radius: 8px; }
+    .water-balance-figure figcaption { text-align: center; color: #8b9cad !important; margin-bottom: 1rem; }
+    .water-balance-svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -39,6 +58,44 @@
       <h2>Research</h2>
       <div class="content">
         <p class="section-intro">Overview of your research interests and focus areas.</p>
+
+        <figure class="water-balance-figure">
+          <figcaption>Conceptual water balance</figcaption>
+          <svg class="water-balance-svg" viewBox="0 0 480 250" xmlns="http://www.w3.org/2000/svg" aria-label="Water balance: precipitation, evapotranspiration, runoff, storage">
+            <defs>
+              <linearGradient id="rain" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#22b4d9"/>
+                <stop offset="100%" stop-color="#0d3d4d"/>
+              </linearGradient>
+              <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#1e2a38"/>
+                <stop offset="50%" stop-color="#22b4d9"/>
+                <stop offset="100%" stop-color="#1e2a38"/>
+              </linearGradient>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M0 0 L8 4 L0 8 Z" fill="#22b4d9"/>
+              </marker>
+            </defs>
+            <!-- Precipitation -->
+            <text x="240" y="28" text-anchor="middle" fill="#8b9cad" font-size="13">Precipitation (P)</text>
+            <path d="M230 45 L240 70 L250 45 L240 55 L230 45" fill="url(#rain)" opacity="0.9"/>
+            <line x1="240" y1="72" x2="240" y2="95" stroke="#22b4d9" stroke-width="2" stroke-dasharray="4 3" opacity="0.8"/>
+            <!-- Basin / storage box -->
+            <rect x="140" y="95" width="200" height="80" rx="8" fill="#111820" stroke="#22b4d9" stroke-width="2"/>
+            <text x="240" y="125" text-anchor="middle" fill="#e6edf3" font-size="14">Catchment / Basin</text>
+            <text x="240" y="145" text-anchor="middle" fill="#8b9cad" font-size="12">ΔS (storage change)</text>
+            <!-- Outflows -->
+            <path d="M340 135 L398 102" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M140 135 L82 168" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M240 175 L240 208" stroke="url(#flow)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <!-- Labels -->
+            <text x="405" y="98" fill="#22b4d9" font-size="12">Runoff (Q)</text>
+            <text x="48" y="172" fill="#22b4d9" font-size="12">ET</text>
+            <text x="252" y="225" fill="#8b9cad" font-size="11">Groundwater</text>
+            <text x="240" y="243" text-anchor="middle" fill="#22b4d9" font-size="12">P = ET + Q + ΔS</text>
+          </svg>
+        </figure>
+
         <ul class="paper-list">
           <li class="paper">
             <span class="paper-title">Paper or Project Title</span>
