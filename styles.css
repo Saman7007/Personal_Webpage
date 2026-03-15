@@ -90,8 +90,23 @@ body::before {
 .cv-entry li { margin-bottom: 0.35rem; }
 .cv-item { margin-bottom: 1rem; font-size: 2.3rem; }
 .cv-item:last-child { margin-bottom: 0; }
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
-.skills-grid .card { margin: 0; }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.skills-grid .card {
+  margin: 0;
+  padding: 2rem 2rem;
+  min-height: 0;
+}
+.skills-grid .card h3 {
+  margin-bottom: 0.75rem;
+}
+.skills-grid .card p {
+  line-height: 1.6;
+}
 .contact-block { margin-top: 1rem; }
 .contact-block a { display: inline-block; margin-right: 1rem; margin-bottom: 0.5rem; }
 
@@ -315,4 +330,5 @@ a:hover {
   .hero { padding: 2rem 0 3rem; }
   .section { padding: 2rem 0; }
   .card-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
 }
