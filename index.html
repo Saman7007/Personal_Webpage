@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name — Personal & Research</title>
+  <meta name="description" content="Personal website and research portfolio.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="hero-title">Hi, I'm <span class="name">Your Name</span></h1>
+      <p class="hero-tagline">Researcher · Developer · [Your thing]</p>
+      <p class="hero-bio">Short one-liner about what you do and what drives you. Edit this in <code>index.html</code>.</p>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="content">
+        <p>Write a few sentences about yourself: your background, what you're studying or working on, and what you care about. This is your chance to let visitors get to know you.</p>
+        <p>You can add more paragraphs, a photo, or links to your CV or LinkedIn.</p>
+      </div>
+    </section>
+
+    <section id="research" class="section">
+      <h2>Research</h2>
+      <div class="content">
+        <p class="section-intro">Overview of your research interests and focus areas.</p>
+        <ul class="paper-list">
+          <li class="paper">
+            <span class="paper-title">Paper or Project Title</span>
+            <span class="paper-meta">Authors, Venue/Year — <a href="#">Link</a></span>
+            <span class="paper-desc">Brief description or abstract snippet.</span>
+          </li>
+          <li class="paper">
+            <span class="paper-title">Another Paper or Project</span>
+            <span class="paper-meta">Authors, Venue/Year — <a href="#">Link</a></span>
+            <span class="paper-desc">Another short description.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects & Cool Stuff</h2>
+      <div class="content">
+        <p>Side projects, open source, hobbies, or anything else you want to highlight. Link to GitHub repos, demos, or blog posts.</p>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Project One</h3>
+            <p>Short description. <a href="#">Link</a></p>
+          </article>
+          <article class="card">
+            <h3>Project Two</h3>
+            <p>Short description. <a href="#">Link</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="content contact-links">
+        <a href="https://github.com/yourusername" rel="noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://twitter.com/yourusername" rel="noopener noreferrer" target="_blank">Twitter / X</a>
+        <a href="https://linkedin.com/in/yourusername" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="mailto:you@example.com">Email</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Your Name. Built for GitHub Pages.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
