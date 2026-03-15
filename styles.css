@@ -1,17 +1,20 @@
-/* --- Variables --- */
+/* --- AI + Hydrology theme: dark base, water/tech accents --- */
 :root {
-  --bg: #faf8f5;
-  --text: #1a1a1a;
-  --text-muted: #4a4a4a;
-  --accent: #c45c3e;
-  --accent-hover: #a04a32;
-  --border: #e8e4df;
-  --card-bg: #fff;
+  --bg: #0a0e14;
+  --bg-card: #111820;
+  --bg-header: rgba(10, 14, 20, 0.92);
+  --text: #e6edf3;
+  --text-muted: #8b9cad;
+  --accent: #22b4d9;
+  --accent-hover: #5dd4f5;
+  --accent-subtle: #0d3d4d;
+  --border: #1e2a38;
+  --glow: rgba(34, 180, 217, 0.25);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --max-width: 720px;
   --space: 1.5rem;
-  --radius: 6px;
+  --radius: 8px;
 }
 
 /* --- Reset & base --- */
@@ -25,6 +28,19 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Subtle gradient + flow feel (AI/hydrology) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 180, 217, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(34, 180, 217, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* --- Header --- */
@@ -32,8 +48,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(250, 248, 245, 0.9);
-  backdrop-filter: blur(8px);
+  background: var(--bg-header);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 .nav {
@@ -58,6 +74,8 @@ main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 1.25rem 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* --- Hero --- */
@@ -71,8 +89,12 @@ main {
   font-weight: 600;
   margin: 0 0 0.5rem;
   line-height: 1.2;
+  color: var(--text);
 }
-.hero-title .name { color: var(--accent); }
+.hero-title .name {
+  color: var(--accent);
+  font-weight: 600;
+}
 .hero-tagline {
   font-size: 1.15rem;
   color: var(--text-muted);
@@ -87,8 +109,10 @@ main {
 .hero-bio code {
   font-size: 0.9em;
   padding: 0.15em 0.4em;
-  background: var(--border);
+  background: var(--accent-subtle);
+  color: var(--accent);
   border-radius: 4px;
+  border: 1px solid var(--border);
 }
 
 /* --- Sections --- */
@@ -103,6 +127,15 @@ main {
   font-weight: 600;
   margin: 0 0 1.25rem;
   color: var(--text);
+}
+.section h2::after {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin-top: 0.5rem;
+  border-radius: 2px;
 }
 .section-intro {
   color: var(--text-muted);
@@ -140,6 +173,7 @@ a:hover {
   font-weight: 600;
   display: block;
   margin-bottom: 0.25rem;
+  color: var(--text);
 }
 .paper-meta {
   font-size: 0.9rem;
@@ -161,7 +195,7 @@ a:hover {
   margin-top: 1rem;
 }
 .card {
-  background: var(--card-bg);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.25rem;
@@ -169,14 +203,16 @@ a:hover {
 }
 .card:hover {
   border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 0 20px var(--glow);
 }
 .card h3 {
   font-family: var(--font-serif);
   font-size: 1.2rem;
   margin: 0 0 0.5rem;
+  color: var(--text);
 }
-.card p { margin: 0; font-size: 0.95rem; }
+.card p { margin: 0; font-size: 0.95rem; color: var(--text-muted); }
+.card p a { color: var(--accent); }
 
 /* --- Contact --- */
 .contact-links {
@@ -197,6 +233,8 @@ a:hover {
   text-align: center;
   font-size: 0.9rem;
   color: var(--text-muted);
+  position: relative;
+  z-index: 1;
 }
 .site-footer p { margin: 0; }
 
